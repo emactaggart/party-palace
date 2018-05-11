@@ -1,0 +1,167 @@
+{
+    "1": {
+        "state": {
+            "on": true,
+            "bri": 254,
+            "hue": 25000,
+            "sat": 254,
+            "effect": "none",
+            "xy": [
+                0.4152,
+                0.5134
+            ],
+            "ct": 299,
+            "alert": "none",
+            "colormode": "hs",
+            "reachable": true
+        },
+        "type": "Extended color light",
+        "name": "Hue color lamp 1",
+        "modelid": "LCT007",
+        "manufacturername": "Philips",
+        "uniqueid": "00:17:88:01:10:54:2a:9c-0b",
+        "swversion": "66014919",
+        "pointsymbol": {
+            "1": "none",
+            "2": "none",
+            "3": "none",
+            "4": "none",
+            "5": "none",
+            "6": "none",
+            "7": "none",
+            "8": "none"
+        }
+    },
+    "2": {
+        "state": {
+            "on": true,
+            "bri": 254,
+            "hue": 55000,
+            "sat": 254,
+            "effect": "colorloop",
+            "xy": [
+                0.4152,
+                0.5134
+            ],
+            "ct": 299,
+            "alert": "select",
+            "colormode": "hs",
+            "reachable": false
+        },
+        "type": "Extended color light",
+        "name": "Hue color lamp 2",
+        "modelid": "LCT007",
+        "manufacturername": "Philips",
+        "uniqueid": "00:17:88:01:10:54:2c:ac-0b",
+        "swversion": "66014919",
+        "pointsymbol": {
+            "1": "none",
+            "2": "none",
+            "3": "none",
+            "4": "none",
+            "5": "none",
+            "6": "none",
+            "7": "none",
+            "8": "none"
+        }
+    },
+    "3": {
+        "state": {
+            "on": true,
+            "bri": 254,
+            "hue": 14910,
+            "sat": 144,
+            "effect": "none",
+            "xy": [
+                0.4596,
+                0.4105
+            ],
+            "ct": 370,
+            "alert": "none",
+            "colormode": "ct",
+            "reachable": true
+        },
+        "type": "Extended color light",
+        "name": "Hue color lamp 3",
+        "modelid": "LCT007",
+        "manufacturername": "Philips",
+        "uniqueid": "00:17:88:01:10:54:3c:3d-0b",
+        "swversion": "66014919",
+        "pointsymbol": {
+            "1": "none",
+            "2": "none",
+            "3": "none",
+            "4": "none",
+            "5": "none",
+            "6": "none",
+            "7": "none",
+            "8": "none"
+        }
+    },
+    "4": {
+        "state": {
+            "on": true,
+            "bri": 254,
+            "hue": 55000,
+            "sat": 254,
+            "effect": "none",
+            "xy": [
+                0.3846,
+                0.1608
+            ],
+            "ct": 253,
+            "alert": "none",
+            "colormode": "hs",
+            "reachable": true
+        },
+        "type": "Extended color light",
+        "name": "Hue color lamp 4",
+        "modelid": "LCT007",
+        "manufacturername": "Philips",
+        "uniqueid": "00:17:88:01:10:3b:1d:12-0b",
+        "swversion": "66014919",
+        "pointsymbol": {
+            "1": "none",
+            "2": "none",
+            "3": "none",
+            "4": "none",
+            "5": "none",
+            "6": "none",
+            "7": "none",
+            "8": "none"
+        }
+    },
+    "5": {
+        "state": {
+            "on": true,
+            "bri": 254,
+            "hue": 25000,
+            "sat": 254,
+            "effect": "none",
+            "xy": [
+                0.4152,
+                0.5134
+            ],
+            "ct": 299,
+            "alert": "none",
+            "colormode": "hs",
+            "reachable": false
+        },
+        "type": "Extended color light",
+        "name": "Hue color lamp 5",
+        "modelid": "LCT007",
+        "manufacturername": "Philips",
+        "uniqueid": "00:17:88:01:10:3b:16:d1-0b",
+        "swversion": "66014919",
+        "pointsymbol": {
+            "1": "none",
+            "2": "none",
+            "3": "none",
+            "4": "none",
+            "5": "none",
+            "6": "none",
+            "7": "none",
+            "8": "none"
+        }
+    }
+}

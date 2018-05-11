@@ -1,0 +1,14 @@
+
+
+.drop-down {
+  background-color: salmon;
+}
+
+.item {
+  display: none;
+  background-color: lightgreen;
+}
+
+.drop-down:hover>.item {
+  display: block;
+}
