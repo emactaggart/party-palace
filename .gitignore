@@ -14,3 +14,7 @@ pom.xml.asc
 /.env
 /.sass-cache
 /.cljs_rhino_repl
+*.iml
+/.idea
+prod_start.sh
+
