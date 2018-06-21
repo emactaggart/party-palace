@@ -8,10 +8,10 @@
             [environ.core :refer [env]]
             [clojure.walk :refer [keywordize-keys]]
             [party-palace.data :as party-data]
-            [party-palace.jenkins-client :as jenkins]
+            [party-palace.clients.jenkins-client :as jenkins]
             [party-palace.util :as util]
-            [party-palace.ci-client :as ci])
-  (:use [party-palace.hue-client :as hue]))
+            [party-palace.clients.ci-client :as ci])
+  (:use [party-palace.clients.hue-client :as hue]))
 
 (defn calc-mode [state]
   (let [job (get state :job "")
@@ -37,6 +37,7 @@
 (def jenkins-data (if test-mode
                     (party-data/slurp-jobs)
                     (jenkins/get-job-names-and-status)))
+
 
 (def ci-data (ci/get-light-jobs))
 
@@ -107,13 +108,20 @@
                    (handle-light-update id light-state)
                    {:status 200 :body nil}
                   ))
-           ;; (GET "/jenkins-jobs" [] (
-           ;;                          -> (jenkins/get-jobs)
-           ;;                          (#(hash-map :jobs %))
-           ;;                          shwrap-json-body
-           ;;                          ))
+            ;(GET "/jenkins-jobs" []
+              ;(
+              ;                       -> jenkins-data
+              ;                       (#(hash-map :jobs %))
+              ;                       shwrap-json-body
+              ;                       )
+              ;                      (jenkins-data)
+
+                                    )
            (GET "/jenkins-jobs" [] (-> (party-data/slurp-jobs)
                                        shwrap-json-body))
+           ;FIXME
+           ;(GET "/jenkins-jobs" [] (-> jenkins-data
+           ;                            shwrap-json-body))
            )
   ;; (GET "/" [] (-> (resource-response "index.html" {:root "public"})
   ;;                 (content-type "text/html")))

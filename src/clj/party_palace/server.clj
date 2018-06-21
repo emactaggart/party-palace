@@ -9,5 +9,6 @@
   (let [pstr (if-not (empty? (env :port))
              (env :port)
              "3000")
-        port (Integer/parseInt pstr)]
+        port (Integer/parseInt pstr)
+        ]
     (run-jetty app {:port port :join? false})))

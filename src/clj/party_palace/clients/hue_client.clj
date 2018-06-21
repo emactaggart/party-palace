@@ -1,4 +1,4 @@
-(ns party-palace.hue-client
+(ns party-palace.clients.hue-client
   (:require [party-palace.util
              :refer [get-request put-request post-request]]
             [environ.core :refer [env]]))

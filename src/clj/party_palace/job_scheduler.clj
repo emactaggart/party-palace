@@ -1,7 +1,7 @@
 (ns party-palace.job-scheduler
-  (:require [party-palace.ci-client :as ci]
-            [party-palace.hue-client :as hue]
-            [party-palace.jenkins-client :as jenkins]
+  (:require [party-palace.clients.ci-client :as ci]
+            [party-palace.clients.hue-client :as hue]
+            [party-palace.clients.jenkins-client :as jenkins]
             [clojure.core.async :as async :refer [chan go <! >! go-loop timeout alt!]]
             [party-palace.util :refer [set-timeout set-interval]]))
 

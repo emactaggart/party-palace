@@ -1,4 +1,4 @@
-(ns party-palace.jenkins-client
+(ns party-palace.clients.jenkins-client
   (:require [clj-http.client :as http]
             [clojure.data.json :as json]
             [party-palace.util :refer [get-request]]
@@ -46,3 +46,4 @@
        (filter #(= name (:name %)))
        first
        :color))
+

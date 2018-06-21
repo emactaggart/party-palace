@@ -1,4 +1,4 @@
-(ns party-palace.ci-client
+(ns party-palace.clients.ci-client
   (:require [clojure.data.json :as json]
             [clojure.java.io :as io]
             [environ.core :refer [env]]

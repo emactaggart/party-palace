@@ -1,9 +1,9 @@
 (ns party-palace.playground
   (:require
    [party-palace.data :as data]
-   [party-palace.hue-client :as hue]
-   [party-palace.jenkins-client :as jenkins]
-   [party-palace.ci-client :as ci]
+   [party-palace.clients.hue-client :as hue]
+   [party-palace.clients.jenkins-client :as jenkins]
+   [party-palace.clients.ci-client :as ci]
    [party-palace.util :as u]
    [party-palace.handler :as hand]
    [clj-http.client :as http]

@@ -27,7 +27,8 @@
             [lein-cljsbuild "1.1.7"]
             [lein-figwheel "0.5.15"]
             [lein-asset-minifier "0.2.7"
-             :exclusions [org.clojure/clojure]]]
+             :exclusions [org.clojure/clojure]]
+            [lein-ring "0.12.4"]]
 
   :ring {:init party-palace.job-scheduler/run-jenkins-loop
          :handler party-palace.handler/app
@@ -119,8 +120,8 @@
                                 :ci-server-uri "http://jenkins.uri.com"
                                 :jobs-file "jobs.json"
                                 }
-                          ;; :aot :all
-                          ;; :omit-source true
+                           :aot :all
+                           :omit-source true
                           }
 
              :uberjar {:hooks [minify-assets.plugin/hooks]
