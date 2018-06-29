@@ -449,7 +449,7 @@
 
 (def jenkins-file
   (if (env :jenkins-file)
-    (io/resource (env :jenkins-file))
+    (io/file (env :jenkins-file))
     nil))
 
 (defn slurp-jobs []
