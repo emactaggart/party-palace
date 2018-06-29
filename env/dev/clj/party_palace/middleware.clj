@@ -8,7 +8,7 @@
 
 (def no-xsrf-site-defaults (assoc-in site-defaults [:security :anti-forgery] false))
 
-;; TODO
+;; TODO figure out xsrf
 ;; (def wrap-csrf-in-cookie [handler]
 ;;   (fn [request]
 ;;     ()))

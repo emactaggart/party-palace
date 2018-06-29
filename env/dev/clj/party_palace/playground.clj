@@ -1,6 +1,6 @@
 (ns party-palace.playground
   (:require
-   [party-palace.data :as data]
+   [party-palace.test-data :as data]
    [party-palace.clients.hue-client :as hue]
    [party-palace.clients.jenkins-client :as jenkins]
    [party-palace.clients.ci-client :as ci]

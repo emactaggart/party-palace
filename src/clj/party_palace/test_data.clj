@@ -1,4 +1,4 @@
-(ns party-palace.data
+(ns party-palace.test-data
   (:require
    [clojure.data.json :as json]
    [clojure.java.io :as io]

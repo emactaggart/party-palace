@@ -7,7 +7,7 @@
             [ring.util.response :refer [file-response resource-response redirect content-type]]
             [environ.core :refer [env]]
             [clojure.walk :refer [keywordize-keys]]
-            [party-palace.data :as party-data]
+            [party-palace.test-data :as party-data]
             [party-palace.clients.jenkins-client :as jenkins]
             [party-palace.util :as util]
             [party-palace.clients.ci-client :as ci])
@@ -18,11 +18,11 @@
         effect (get state :effect "none")
         colormode (get state :colormode "hs")]
     (cond
-        (not-empty job) :build
-        (= effect "colorloop") :colorloop
-        (= colormode "hs") :hs
-        (= colormode "ct") :ct
-        :else :hue)))
+      (not-empty job) :build
+      (= effect "colorloop") :colorloop
+      (= colormode "hs") :hs
+      (= colormode "ct") :ct
+      :else :hue)))
 
 (defn shwrap-json-body [col]
   {:pre [(map? col)]}
@@ -66,17 +66,17 @@
                        keyword)
         light-request (case light-mode
                         :build (merge
-                                (select-keys light-state [:on  :hue :sat :bri])
-                                {:effect "none"})
+                                 (select-keys light-state [:on :hue :sat :bri])
+                                 {:effect "none"})
                         :colorloop (merge
-                                    (select-keys light-state [:on :hue :sat :bri])
-                                    {:effect "colorloop"})
+                                     (select-keys light-state [:on :hue :sat :bri])
+                                     {:effect "colorloop"})
                         :hs (merge
-                             (select-keys light-state [:on :hue :sat :bri])
-                             {:effect "none"})
+                              (select-keys light-state [:on :hue :sat :bri])
+                              {:effect "none"})
                         :ct (merge
-                             (select-keys light-state [:on :ct :sat :bri])
-                             {:effect "none"})
+                              (select-keys light-state [:on :ct :sat :bri])
+                              {:effect "none"})
                         {})]
     (if (= :build light-mode)
       (ci/set-light-job! id (:job light-state))
@@ -98,35 +98,21 @@
 ;;                 #(if (= "/" %) "/index.html" %)))))
 
 (defroutes routes
-  (context "/api" []
-           (GET "/hello" [] (shwrap-json-body {:hello "hello"}))
-           ;; (GET "/lights" [] (shwrap-json-body (hue/get-lights)))
-           (GET "/all" [] (shwrap-json-body all-data-response))
-           (GET "/lights" [] (shwrap-json-body (:lights all-data-response)))
-           (PUT "/lights/:id" [id :as {body :body}]
-                (let [light-state (keywordize-keys body)]
-                   (handle-light-update id light-state)
-                   {:status 200 :body nil}
-                  ))
-            ;(GET "/jenkins-jobs" []
-              ;(
-              ;                       -> jenkins-data
-              ;                       (#(hash-map :jobs %))
-              ;                       shwrap-json-body
-              ;                       )
-              ;                      (jenkins-data)
-
-                                    )
-           (GET "/jenkins-jobs" [] (-> (party-data/slurp-jobs)
-                                       shwrap-json-body))
-           ;FIXME
-           ;(GET "/jenkins-jobs" [] (-> jenkins-data
-           ;                            shwrap-json-body))
-           )
-  ;; (GET "/" [] (-> (resource-response "index.html" {:root "public"})
-  ;;                 (content-type "text/html")))
-  (GET "/" [] (redirect "/index.html"))
-  (resources "/")
-  (not-found "Not Found"))
+           (context "/api" []
+             (GET "/hello" [] (shwrap-json-body {:hello "hello"}))
+             (GET "/all" [] (shwrap-json-body all-data-response))
+             (GET "/lights" [] (shwrap-json-body (hue/get-lights)))
+             (GET "/lights" [] (shwrap-json-body (:lights all-data-response)))
+             (PUT "/lights/:id" [id :as {body :body}]
+               (let [light-state (keywordize-keys body)]
+                 (handle-light-update id light-state)
+                 {:status 200 :body nil}))
+             (GET "/jenkins-jobs" [] (-> (party-data/slurp-jobs)
+                                         shwrap-json-body)))
+           ;; (GET "/" [] (-> (resource-response "index.html" {:root "public"})
+           ;;                 (content-type "text/html")))
+           (GET "/" [] (redirect "/index.html"))
+           (resources "/")
+           (not-found "Not Found"))
 
 (def app (wrap-middleware #'routes))
